@@ -44,7 +44,7 @@ class Usuario extends \yii\db\ActiveRecord
             [['nombre', 'apellido'], 'string', 'max' => 40],
             [['sexo'], 'string', 'max' => 10],
             [['email'], 'string', 'max' => 60],
-            [['clave', 'usr', 'foto'], 'string', 'max' => 140]
+            [['clave', 'usr','foto'], 'string', 'max' => 140],
         ];
     }
 

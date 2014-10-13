@@ -4,6 +4,7 @@ use yii\helpers\Html;
 //use yii\widgets\ActiveForm;
 use kartik\widgets\ActiveForm;
 use kartik\widgets\DatePicker;
+use kartik\widgets\FileInput;
 
 /**
  * @var yii\web\View $this
@@ -32,7 +33,7 @@ use kartik\widgets\DatePicker;
     <?= $form->field($model, 'email')->textInput(['maxlength' => 60]) ?>
     <?= $form->field($model, 'usr')->textInput(['maxlength' => 140]) ?>
     <?= $form->field($model, 'clave')->passwordInput(['maxlength' => 140]) ?>
-    <?= $form->field($model, 'foto')->fileInput() ?>
+    <?= $form->field($model, 'foto')->widget(FileInput::classname(), ['options' => ['accept' => 'image/*'],]) ?>
     
     
     
