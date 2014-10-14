@@ -13,7 +13,7 @@ use kartik\widgets\FileInput;
  */
 ?>
 
-<div class="usuario-form">
+<div class="usuario-form col-lg-offset-3 col-lg-8">
 	
     <?php $form = ActiveForm::begin([
                 'options' => ['enctype'=>'multipart/form-data']
@@ -22,7 +22,7 @@ use kartik\widgets\FileInput;
     <?= $form->field($model, 'nombre')->textInput(['maxlength' => 40]) ?>
     <?= $form->field($model, 'apellido')->textInput(['maxlength' => 40]) ?>
     <?= $form->field($model, 'fecha_nac')->widget(DatePicker::classname(), [
-    'options' => ['placeholder' => 'Enter birth date ...'],
+    'options' => ['placeholder' => 'Ingrese la fecha de nacimiento ...'],
     'pluginOptions' => [
     'autoclose'=>true,
     'format' => 'yyyy/mm/dd'

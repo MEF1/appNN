@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use kartik\widgets\DatePicker;
 
 /**
  * @var yii\web\View $this
@@ -10,13 +11,19 @@ use yii\widgets\ActiveForm;
  */
 ?>
 
-<div class="evento-form">
+<div class="evento-form col-lg-offset-2 col-lg-8">
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'fecha')->textInput() ?>
+    <?= $form->field($model, 'fecha')->widget(DatePicker::classname(), [
+    'options' => ['placeholder' => 'Fecha del evento'],
+    'pluginOptions' => [
+    'autoclose'=>true,
+    'format' => 'yyyy/mm/dd'
+    ]
+    ]); ?>
 
-    <?= $form->field($model, 'hora')->textInput() ?>
+    <?= $form->field($model, 'hora')->widget(kartik\widgets\TimePicker::className())?>
 
     <?= $form->field($model, 'direccion')->textInput() ?>
 

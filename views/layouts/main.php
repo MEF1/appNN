@@ -37,6 +37,8 @@ AppAsset::register($this);
                 'items' => [
                     ['label' => 'Inicio', 'url' => ['/site/index']],
                     ['label' => 'Sobre', 'url' => ['/site/about']],
+                    ['label' => 'Falta Uno', 'url' => ['evento/create']],
+                    ['label' => 'Quien Se Suma', 'url' => ['/evento']],
                     ['label' => 'Contacto', 'url' => ['/site/contact']],
                     Yii::$app->user->isGuest ?
                         ['label' => 'Login', 'url' => ['/site/login']] :
