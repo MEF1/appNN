@@ -5,6 +5,10 @@ namespace app\controllers;
 use Yii;
 use app\models\Evento;
 use app\models\EventoSearch;
+use app\models\Ciudad;
+use app\models\Deporte;
+use app\models\Usuario;
+use app\models\Tipo_Evento;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -32,12 +36,16 @@ class EventoController extends Controller
      */
     public function actionIndex()
     {
+        $id=1;
         $searchModel = new EventoSearch;
         $dataProvider = $searchModel->search(Yii::$app->request->getQueryParams());
+        $usuario= Usuario::findOne($id);
+        
 
         return $this->render('index', [
             'dataProvider' => $dataProvider,
             'searchModel' => $searchModel,
+            'usuario'=>$usuario,
         ]);
     }
 
@@ -61,12 +69,13 @@ class EventoController extends Controller
     public function actionCreate()
     {
         $model = new Evento;
-
+        $usuario= Usuario::find();
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id_evento]);
         } else {
             return $this->render('create', [
                 'model' => $model,
+                'usuario'=>$usuario,
             ]);
         }
     }

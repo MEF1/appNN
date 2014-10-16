@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use kartik\widgets\DatePicker;
+use kartik\widgets\Select2;
 
 /**
  * @var yii\web\View $this
@@ -19,6 +20,7 @@ use kartik\widgets\DatePicker;
     'options' => ['placeholder' => 'Fecha del evento'],
     'pluginOptions' => [
     'autoclose'=>true,
+    'language' => 'es',
     'format' => 'yyyy/mm/dd'
     ]
     ]); ?>
@@ -33,14 +35,14 @@ use kartik\widgets\DatePicker;
 
     <?= $form->field($model, 'long')->textInput() ?>
 
-    <?= $form->field($model, 'id_ciudad')->textInput() ?>
+    <?= $form->field($model, 'id_ciudad')->dropDownList(['value=> $usuario->id_usr'], ['prompt'=>'Seleccione una ciudad'])->label('Ciudad') ?>
 
     <?= $form->field($model, 'id_deporte')->textInput() ?>
 
     <?= $form->field($model, 'id_tipo')->textInput() ?>
 
     <?= $form->field($model, 'id_usuario')->textInput() ?>
-
+    
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>

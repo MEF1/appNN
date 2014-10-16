@@ -22,7 +22,7 @@ use Yii;
  * @property Evento[] $eventos
  * @property Reputacion[] $reputacions
  */
-class Usuario extends \yii\db\ActiveRecord
+class Usuario extends \yii\db\ActiveRecord 
 {
     /**
      * @inheritdoc
@@ -39,11 +39,11 @@ class Usuario extends \yii\db\ActiveRecord
     {
         return [
             [['fecha_nac'], 'safe'],
-            [['sexo','nombre','apellido','email','clave','usr'], 'required'],
+            [['nombre','apellido','email','clave','usr'], 'required'],
             [['telefono'], 'integer'],
             [['nombre', 'apellido'], 'string', 'max' => 40],
             [['sexo'], 'string', 'max' => 10],
-            [['email'], 'string', 'max' => 60],
+            [['email'],'email'],
             [['clave', 'usr','foto'], 'string', 'max' => 140],
         ];
     }

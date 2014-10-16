@@ -43,8 +43,9 @@ class Evento extends \yii\db\ActiveRecord
         return [
             [['fecha', 'hora', 'direccion', 'descripcion', 'lat', 'long', 'id_ciudad', 'id_deporte', 'id_tipo', 'id_usuario'], 'required'],
             [['fecha', 'hora'], 'safe'],
-            [['direccion', 'descripcion', 'id_ciudad', 'id_deporte', 'id_tipo', 'id_usuario'], 'integer'],
-            [['lat', 'long'], 'number']
+            [['id_ciudad', 'id_deporte', 'id_tipo', 'id_usuario'], 'integer'],
+            [['direccion', 'descripcion'], 'string'],
+            [['lat', 'long'], 'double']
         ];
     }
 
