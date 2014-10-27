@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\widgets\ListView;
 
 /**
  * @var yii\web\View $this
@@ -19,10 +20,16 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Evento', ['create'], ['class' => 'btn btn-success']) ?>
+        <?php /* Html::a('Create Evento', ['create'], ['class' => 'btn btn-success']) */?>
     </p>
 
-    <?= GridView::widget([
+    <?= ListView::widget([
+    	'dataProvider' => $dataProvider,
+        'itemView'=>'_view',
+    ]); ?>
+    
+    
+    <?php /* GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
@@ -42,6 +49,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
-    ]); ?>
-
+    ]); */ ?>
+    
 </div>

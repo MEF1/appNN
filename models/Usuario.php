@@ -22,8 +22,47 @@ use Yii;
  * @property Evento[] $eventos
  * @property Reputacion[] $reputacions
  */
-class Usuario extends \yii\db\ActiveRecord 
+class Usuario extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
 {
+       /*********** agregar para interface *********************/
+    public static function findIdentity($id)
+    {
+        return static::findOne($id);
+    }
+    
+    public static function findIdentityByAccessToken($token)
+    {
+        return static::findOne(['access_token' => $token]);
+    }
+
+    public function getId()
+    {
+        return $this->id_usr;
+    }
+
+    public function getAuthKey()
+    {
+        return $this->clave;
+    }
+
+    public function validateAuthKey($authKey)
+    {
+        return $this->clave === $authKey;
+    }
+/*agregar para funcionamiento*/    
+    public static function findByUsername($username)
+    {
+        return static::findOne(['usr' => $username]);
+    }
+    public function validatePassword($authKey)
+    {
+        return $this->clave === $authKey;
+    }
+    public function getUsername()
+    {
+        return $this->usr;
+    }
+    
     /**
      * @inheritdoc
      */

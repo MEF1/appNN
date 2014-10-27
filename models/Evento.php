@@ -41,7 +41,7 @@ class Evento extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['fecha', 'hora', 'direccion', 'descripcion', 'lat', 'long', 'id_ciudad', 'id_deporte', 'id_tipo', 'id_usuario'], 'required'],
+            [['fecha', 'hora', 'direccion', 'descripcion', 'id_ciudad', 'id_deporte', 'id_tipo', 'id_usuario'], 'required'],
             [['fecha', 'hora'], 'safe'],
             [['id_ciudad', 'id_deporte', 'id_tipo', 'id_usuario'], 'integer'],
             [['direccion', 'descripcion'], 'string'],
@@ -62,10 +62,10 @@ class Evento extends \yii\db\ActiveRecord
             'descripcion' => 'Descripcion',
             'lat' => 'Lat',
             'long' => 'Long',
-            'id_ciudad' => 'Id Ciudad',
-            'id_deporte' => 'Id Deporte',
-            'id_tipo' => 'Id Tipo',
-            'id_usuario' => 'Id Usuario',
+            'id_ciudad' => 'Ciudad',
+            'id_deporte' => 'Deporte',
+            'id_tipo' => 'Tipo',
+            'id_usuario' => 'Usuario',
         ];
     }
 

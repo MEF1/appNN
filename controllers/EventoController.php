@@ -70,7 +70,10 @@ class EventoController extends Controller
     {
         $model = new Evento;
         $usuario= Usuario::find();
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
+            $model->id_usuario=Yii::$app->user->identity->id;
+            $model->id_tipo='1';
+            $model->save();
             return $this->redirect(['view', 'id' => $model->id_evento]);
         } else {
             return $this->render('create', [

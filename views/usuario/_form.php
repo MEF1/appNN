@@ -28,7 +28,7 @@ use kartik\widgets\FileInput;
     'format' => 'yyyy/mm/dd'
     ]
     ]);?>
-    <?= $form->field($model, 'sexo')->radioList(["masculino" => "Masculino","femenino" => "Femenino"], $options = [])?>
+    <?= $form->field($model, 'sexo')->radioList(["masculino" => "Masculino","femenino" => "Femenino"], $options = ['inline'=>true])?>
     <?= $form->field($model, 'telefono')->textInput() ?>
     <?= $form->field($model, 'email')->textInput(['maxlength' => 60]) ?>
     <?= $form->field($model, 'usr')->textInput(['maxlength' => 140]) ?>

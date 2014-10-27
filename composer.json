@@ -19,7 +19,8 @@
 		"yiisoft/yii2-bootstrap": "*",
 		"yiisoft/yii2-swiftmailer": "*",
 		"kartik-v/yii2-widgets": "dev-master",
-		"trentrichardson/jquery-timepicker-addon": "dev-master"
+		"trentrichardson/jquery-timepicker-addon": "dev-master",
+		"2amigos/egmap": "dev-master"
 	},
 	"require-dev": {
 		"yiisoft/yii2-codeception": "*",

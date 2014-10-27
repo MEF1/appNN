@@ -41,7 +41,7 @@ class Deporte extends \yii\db\ActiveRecord
     {
         return [
             'id_deporte' => 'Id Deporte',
-            'nombre' => 'Nombre',
+            'nombre' => 'Deporte',
         ];
     }
 
