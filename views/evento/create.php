@@ -7,7 +7,7 @@ use yii\helpers\Html;
  * @var app\models\Evento $model
  */
 
-$this->title = 'Create Evento';
+$this->title = 'Creacion evento: Me Falta Uno';
 $this->params['breadcrumbs'][] = ['label' => 'Eventos', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -15,8 +15,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <?= $this->render('_form', [
-        'model' => $model,
-    ]) ?>
+    <?= $this->render('_form', array('model'=>$model,'puesto'=>$puesto)) ?>
 
 </div>

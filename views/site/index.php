@@ -9,7 +9,7 @@ $this->title = 'MEFU app';
 
     <div class="jumbotron">
         <br><br>
-        <?=Html::img('imagenes/logoAppNN.png',['height'=>'200px'])?>
+        <?=Html::img('imagenes/logoAppNN.png', ['class' => 'img-responsive'])?>
         
         <p class="lead">La nueva APP para completar tus picados incompletos</p>
         <br><br><br><br><br>

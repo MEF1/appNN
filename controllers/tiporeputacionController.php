@@ -3,16 +3,16 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\Tipo_Evento;
-use app\models\Tipo_EventoSearch;
+use app\models\tipo_reputacion;
+use app\models\tipo_reputacionSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * Tipo_EventoController implements the CRUD actions for Tipo_Evento model.
+ * tipo_reputacionController implements the CRUD actions for tipo_reputacion model.
  */
-class Tipo_EventoController extends Controller
+class tiporeputacionController extends Controller
 {
     public function behaviors()
     {
@@ -27,12 +27,12 @@ class Tipo_EventoController extends Controller
     }
 
     /**
-     * Lists all Tipo_Evento models.
+     * Lists all tipo_reputacion models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new Tipo_EventoSearch;
+        $searchModel = new tipo_reputacionSearch;
         $dataProvider = $searchModel->search(Yii::$app->request->getQueryParams());
 
         return $this->render('index', [
@@ -42,7 +42,7 @@ class Tipo_EventoController extends Controller
     }
 
     /**
-     * Displays a single Tipo_Evento model.
+     * Displays a single tipo_reputacion model.
      * @param integer $id
      * @return mixed
      */
@@ -54,16 +54,16 @@ class Tipo_EventoController extends Controller
     }
 
     /**
-     * Creates a new Tipo_Evento model.
+     * Creates a new tipo_reputacion model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Tipo_Evento;
+        $model = new tipo_reputacion;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id_tipoEvento]);
+            return $this->redirect(['view', 'id' => $model->id_tipo]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -72,7 +72,7 @@ class Tipo_EventoController extends Controller
     }
 
     /**
-     * Updates an existing Tipo_Evento model.
+     * Updates an existing tipo_reputacion model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -82,7 +82,7 @@ class Tipo_EventoController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id_tipoEvento]);
+            return $this->redirect(['view', 'id' => $model->id_tipo]);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -91,7 +91,7 @@ class Tipo_EventoController extends Controller
     }
 
     /**
-     * Deletes an existing Tipo_Evento model.
+     * Deletes an existing tipo_reputacion model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -104,15 +104,15 @@ class Tipo_EventoController extends Controller
     }
 
     /**
-     * Finds the Tipo_Evento model based on its primary key value.
+     * Finds the tipo_reputacion model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Tipo_Evento the loaded model
+     * @return tipo_reputacion the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Tipo_Evento::findOne($id)) !== null) {
+        if (($model = tipo_reputacion::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

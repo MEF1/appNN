@@ -42,7 +42,15 @@ AppAsset::register($this);
                     ['label' => 'Quien Se Suma', 'url' => ['/evento']],
                     ['label' => 'Contacto', 'url' => ['/site/contact']],
                     Yii::$app->user->isGuest ?
+                        ['label' => 'Perfil', 'url' => ['/site/login']] :
+                        
+                        ['label' => 'Mi Perfil',
+                            'url' => ['/usuario/view&id='.Yii::$app->user->id],
+                            'linkOptions' => ['data-method' => 'post']],
+                
+                    Yii::$app->user->isGuest ?
                         ['label' => 'Login', 'url' => ['/site/login']] :
+                        
                         ['label' => 'Logout (' . Yii::$app->user->identity->username . ')',
                             'url' => ['/site/logout'],
                             'linkOptions' => ['data-method' => 'post']],

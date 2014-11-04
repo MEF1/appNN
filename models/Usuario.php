@@ -78,7 +78,8 @@ class Usuario extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     {
         return [
             [['fecha_nac'], 'safe'],
-            [['nombre','apellido','email','clave','usr'], 'required'],
+            [['nombre','apellido','email','telefono','clave','usr'], 'required'],
+            [['usr','email'], 'unique'],
             [['telefono'], 'integer'],
             [['nombre', 'apellido'], 'string', 'max' => 40],
             [['sexo'], 'string', 'max' => 10],

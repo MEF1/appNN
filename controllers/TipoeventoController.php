@@ -3,16 +3,16 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\Puesto_Evento;
-use app\models\Puesto_EventoSearch;
+use app\models\Tipo_Evento;
+use app\models\Tipo_EventoSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * Puesto_EventoController implements the CRUD actions for Puesto_Evento model.
+ * Tipo_EventoController implements the CRUD actions for Tipo_Evento model.
  */
-class Puesto_EventoController extends Controller
+class TipoeventoController extends Controller
 {
     public function behaviors()
     {
@@ -27,12 +27,12 @@ class Puesto_EventoController extends Controller
     }
 
     /**
-     * Lists all Puesto_Evento models.
+     * Lists all Tipo_Evento models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new Puesto_EventoSearch;
+        $searchModel = new Tipo_EventoSearch;
         $dataProvider = $searchModel->search(Yii::$app->request->getQueryParams());
 
         return $this->render('index', [
@@ -42,7 +42,7 @@ class Puesto_EventoController extends Controller
     }
 
     /**
-     * Displays a single Puesto_Evento model.
+     * Displays a single Tipo_Evento model.
      * @param integer $id
      * @return mixed
      */
@@ -54,16 +54,16 @@ class Puesto_EventoController extends Controller
     }
 
     /**
-     * Creates a new Puesto_Evento model.
+     * Creates a new Tipo_Evento model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Puesto_Evento;
+        $model = new Tipo_Evento;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id_puestoEvento]);
+            return $this->redirect(['view', 'id' => $model->id_tipoEvento]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -72,7 +72,7 @@ class Puesto_EventoController extends Controller
     }
 
     /**
-     * Updates an existing Puesto_Evento model.
+     * Updates an existing Tipo_Evento model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -82,7 +82,7 @@ class Puesto_EventoController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id_puestoEvento]);
+            return $this->redirect(['view', 'id' => $model->id_tipoEvento]);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -91,7 +91,7 @@ class Puesto_EventoController extends Controller
     }
 
     /**
-     * Deletes an existing Puesto_Evento model.
+     * Deletes an existing Tipo_Evento model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -104,15 +104,15 @@ class Puesto_EventoController extends Controller
     }
 
     /**
-     * Finds the Puesto_Evento model based on its primary key value.
+     * Finds the Tipo_Evento model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Puesto_Evento the loaded model
+     * @return Tipo_Evento the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Puesto_Evento::findOne($id)) !== null) {
+        if (($model = Tipo_Evento::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

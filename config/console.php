@@ -23,6 +23,17 @@ return [
                 ],
             ],
         ],
+        'mailer' => [
+          'class' => 'yii\swiftmailer\Mailer',
+          'transport' => [
+              'class' => 'Swift_SmtpTransport',
+              'host' => 'localhost',
+              'username' => 'root',
+              'password' => 'vasco',
+              'port' => '587',
+              'encryption' => 'tls',
+          ],
+      ],
         'db' => $db,
     ],
     'params' => $params,

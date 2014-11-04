@@ -4,11 +4,15 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use kartik\widgets\DatePicker;
 use kartik\widgets\TimePicker;
+use kartik\widgets\DepDrop;
 // use kartik\widgets\Select2;
-use yii\bootstrap\Modal;
+//use yii\bootstrap\Modal;
 use yii\helpers\ArrayHelper;
+use yii\helpers\Url;
 use app\models\Ciudad;
 use app\models\Deporte;
+use app\models\puesto;
+
 
 /**
  * @var yii\web\View $this
@@ -23,8 +27,20 @@ use app\models\Deporte;
 
     <?= $form->field($model, 'descripcion')->textInput() ?>
 
-    <?= $form->field($model, 'id_deporte')->dropDownList(ArrayHelper::map(Deporte::find()->all(),'id_deporte','nombre')) ?>
-
+    <?= $form->field($model, 'id_deporte')->dropDownList(ArrayHelper::map(Deporte::find()->all(),'id_deporte','nombre'),['prompt'=>'Seleccionar Deporte']) ?>
+    
+    <?php //$form->field($puesto, 'id_puesto')->dropDownList(ArrayHelper::map(puesto::find()->all(),'id_puesto','descripcion'))->label('Puesto') ?>
+    <?php //$form->field($puesto, 'id_puesto')->dropDownList(ArrayHelper::map(puesto::findBySql('select id_puesto,descripcion from Puesto where id_deporte=1'.';')->all(),'id_puesto','descripcion'))->label('Puesto') ?>
+    
+    <?= $form->field($puesto, 'id_puesto')->widget(DepDrop::classname(), [
+                'options'=>['id'=>'id_puesto'],
+                'pluginOptions'=>[
+                'depends'=>[Html::getInputId($model, 'id_deporte')],
+                'placeholder'=>'Seleccionar puesto...',
+                'url'=>Url::to(['/puesto/json'])
+                ]
+            ]);  ?>
+    
     <?= $form->field($model, 'fecha')->widget(DatePicker::classname(), [
     'options' => ['placeholder' => 'Fecha del evento'],
     'pluginOptions' => [

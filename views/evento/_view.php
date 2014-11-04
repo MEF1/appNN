@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 use yii\helpers\ArrayHelper;
+use yii\bootstrap\Modal;
 
 /**
  * @var yii\web\View $this
@@ -18,38 +19,37 @@ use yii\helpers\ArrayHelper;
     <h1><?php // Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Actualizar', ['update', 'id' => $model->id_evento], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Cerrar Evento', ['delete', 'id' => $model->id_evento], [
+        <?php Html::a('Actualizar', ['update', 'id' => $model->id_evento], ['class' => 'btn btn-primary']) ?>
+        <?php Html::a('Cerrar Evento', ['delete', 'id' => $model->id_evento], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
+            'confirm' => 'Are you sure you want to delete this item?',
+            'method' => 'post',
             ],
         ]) ?>
-        <?= Html::a('Postularse', ['_formPostularse', 'id' => $model->id_evento], ['class' => 'btn btn-success']) ?>
     </p>
 
-    <?= DetailView::widget([
-        'model' => $model,
-        'attributes' => [
-            'descripcion',            
-            //'id_evento',
-            'fecha',
-            'hora',
-            'direccion',
-            //'lat',
-            //'long',
-            'idCiudad.nombre',
-            'idDeporte.nombre',
-            //'id_tipo',
-            //'id_usuario',
-            'idUsuario.usr',
-            
-        ],
-    ]) ?>
-    
-    <?php // $model->idUsuario->usr ?>
-    
+<div class="evento-view">
+    <div class="row">        
+        <div class="table-responsive col-md-9 col-md-offset-2">
+            <table class="table">
+                <tr>
+                    <td class="active"><?php  $foto = "imagenes/".$model->idUsuario->foto; echo Html::img($foto,['width'=>'50px','class'=>'img-thumbnail']);?> </td>
+                    <td class="active"><?= $model->descripcion; ?></td>
+                    <td class="active"><b>Fecha</b>: <?= $model->fecha; ?> <br><b>Hora</b>: <?= $model->hora; ?></td>
+                    <td class="success">
+                        <?php Modal::begin([
+                            'toggleButton' => ['label' => 'Quiero ir',
+                            'class' => 'btn btn-success',],]);
+                            echo $this->render('viewPostular', [
+                            'model' => $model,
+                            ]);
 
-
+                            Modal::end();
+                        ?>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
 </div>

@@ -38,15 +38,13 @@ $this->params['breadcrumbs'][] = $this->title;
             'descripcion',
             'lat',
             'long',
-            'id_ciudad',
-            'id_deporte',
+            'idCiudad.nombre',
+            'idDeporte.nombre',
             'id_tipo',
-            'id_usuario',
+            'idUsuario.usr',
         ],
     ]) ?>
     
-    <p>
-        <?= Html::a('Postularse', ['update', 'id' => $model->id_evento], ['class' => 'btn btn-success']) ?>
-    </p>
+    
 
 </div>

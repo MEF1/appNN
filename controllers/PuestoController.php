@@ -8,6 +8,8 @@ use app\models\PuestoSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\helpers\Json;
+use yii\helpers\ArrayHelper;
 
 /**
  * PuestoController implements the CRUD actions for puesto model.
@@ -102,6 +104,52 @@ class PuestoController extends Controller
 
         return $this->redirect(['index']);
     }
+    
+    
+    //  CONTROLLER DROPDOWN DEPENDIENDTE  
+    public function actionJson() {
+        $out = [];
+        if (isset($_POST['depdrop_parents'])) {
+        $parents = $_POST['depdrop_parents'];
+        if ($parents != null) {
+        $id_deporte = $parents[0];
+        $out=  self::getSubListPuesto($id_deporte);
+        //$out = self::getSubCatList($id_deporte);
+        // the getSubCatList function will query the database based on the
+        // cat_id and return an array like below:
+        // [
+        // ['id'=>'<sub-cat-id-1>', 'name'=>'<sub-cat-name1>'],
+        // ['id'=>'<sub-cat_id_2>', 'name'=>'<sub-cat-name2>']
+        // ]
+        
+        
+        echo Json::encode(['output'=>$out, 'selected'=>'']);
+        return;
+        }
+        }
+        echo Json::encode(['output'=>'', 'selected'=>'']);
+    }
+
+    
+    private function getSubListPuesto($id_deporte){
+        //$salida=[];
+        //$model= new puesto();
+        $sql='select id_puesto,descripcion from Puesto where id_deporte='.$id_deporte;
+        $salida = puesto::findBySql($sql)->all();
+        //$salida=$model::find('id_deporte=>'.$id_deporte)->all();  
+        $array=[];
+        foreach ($salida as $key => $puestos) {
+            /*@var $puesto puesto */
+            $array[]=['id'=>$puestos->id_puesto,'name'=>$puestos->descripcion];
+        }
+        return $array;   
+        
+    }
+
+    
+
+
+
 
     /**
      * Finds the puesto model based on its primary key value.

@@ -3,16 +3,17 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\tipo_reputacion;
-use app\models\tipo_reputacionSearch;
+use app\models\Puesto_Evento;
+use app\models\Puesto_EventoSearch;
+use app\models\puesto;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * tipo_reputacionController implements the CRUD actions for tipo_reputacion model.
+ * Puesto_EventoController implements the CRUD actions for Puesto_Evento model.
  */
-class tipo_reputacionController extends Controller
+class PuestoeventoController extends Controller
 {
     public function behaviors()
     {
@@ -27,12 +28,12 @@ class tipo_reputacionController extends Controller
     }
 
     /**
-     * Lists all tipo_reputacion models.
+     * Lists all Puesto_Evento models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new tipo_reputacionSearch;
+        $searchModel = new Puesto_EventoSearch;
         $dataProvider = $searchModel->search(Yii::$app->request->getQueryParams());
 
         return $this->render('index', [
@@ -42,7 +43,7 @@ class tipo_reputacionController extends Controller
     }
 
     /**
-     * Displays a single tipo_reputacion model.
+     * Displays a single Puesto_Evento model.
      * @param integer $id
      * @return mixed
      */
@@ -54,16 +55,16 @@ class tipo_reputacionController extends Controller
     }
 
     /**
-     * Creates a new tipo_reputacion model.
+     * Creates a new Puesto_Evento model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new tipo_reputacion;
+        $model = new Puesto_Evento;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id_tipo]);
+            return $this->redirect(['view', 'id' => $model->id_puestoEvento]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -72,7 +73,7 @@ class tipo_reputacionController extends Controller
     }
 
     /**
-     * Updates an existing tipo_reputacion model.
+     * Updates an existing Puesto_Evento model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -82,7 +83,7 @@ class tipo_reputacionController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id_tipo]);
+            return $this->redirect(['view', 'id' => $model->id_puestoEvento]);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -91,7 +92,7 @@ class tipo_reputacionController extends Controller
     }
 
     /**
-     * Deletes an existing tipo_reputacion model.
+     * Deletes an existing Puesto_Evento model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -102,17 +103,23 @@ class tipo_reputacionController extends Controller
 
         return $this->redirect(['index']);
     }
+    
+    public function actionGetDescripcionPuesto($id_p){
+        $nombrePuesto=  puesto::findSql('select descripcion from Puesto where id_puesto='.$id_p);
+        
+    }
 
+    
     /**
-     * Finds the tipo_reputacion model based on its primary key value.
+     * Finds the Puesto_Evento model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return tipo_reputacion the loaded model
+     * @return Puesto_Evento the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = tipo_reputacion::findOne($id)) !== null) {
+        if (($model = Puesto_Evento::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

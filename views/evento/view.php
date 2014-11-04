@@ -27,6 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
         ]) ?>
 
     </p>
+    
 
     <?= DetailView::widget([
         'model' => $model,
@@ -45,8 +46,6 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]) ?>
     
-    <p>
-        <?= Html::a('Postularse', ['update', 'id' => $model->id_evento], ['class' => 'btn btn-success']) ?>
-    </p>
+    
 
 </div>

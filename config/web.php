@@ -6,6 +6,7 @@ $db = require(__DIR__ . '/db.php');
 $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
+    'language'=> 'es-AR',
     'bootstrap' => ['log'],
     'extensions' => require(__DIR__ . '/../vendor/yiisoft/extensions.php'),
     'components' => [
@@ -21,7 +22,15 @@ $config = [
         ],
         'mail' => [
             'class' => 'yii\swiftmailer\Mailer',
-            'useFileTransport' => true,
+            'useFileTransport' => false, // se cambia a false para mandar mails
+            'transport' => [
+            'class' => 'Swift_SmtpTransport',
+            'host' => 'smtp.gmail.com',
+            'username' => 'appNN.2014@gmail.com',
+            'password' => 'appNN2014',
+            'port' => '587',
+            'encryption' => 'tls',
+                        ],
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,

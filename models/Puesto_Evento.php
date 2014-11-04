@@ -12,6 +12,7 @@ use Yii;
  * @property integer $id_puesto
  *
  * @property Candidato[] $candidatos
+ * @property puesto &id_puesto 
  */
 class Puesto_Evento extends \yii\db\ActiveRecord
 {
@@ -52,5 +53,10 @@ class Puesto_Evento extends \yii\db\ActiveRecord
     public function getCandidatos()
     {
         return $this->hasMany(Candidato::className(), ['id_puestoEvento' => 'id_puestoEvento']);
+    }
+    
+    public function getIdPuesto()
+    {
+        return $this->hasOne(puesto::className(), ['id_puesto' => 'id_puesto']);
     }
 }

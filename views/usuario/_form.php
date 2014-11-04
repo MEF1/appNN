@@ -33,7 +33,7 @@ use kartik\widgets\FileInput;
     <?= $form->field($model, 'email')->textInput(['maxlength' => 60]) ?>
     <?= $form->field($model, 'usr')->textInput(['maxlength' => 140]) ?>
     <?= $form->field($model, 'clave')->passwordInput(['maxlength' => 140]) ?>
-    <?= $form->field($model, 'foto')->widget(FileInput::classname(), ['options' => ['accept' => 'image/*'],]) ?>
+    <?= $form->field($model, 'foto')->widget(FileInput::classname()) ?>
     
     
     

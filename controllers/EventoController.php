@@ -5,13 +5,17 @@ namespace app\controllers;
 use Yii;
 use app\models\Evento;
 use app\models\EventoSearch;
-use app\models\Ciudad;
-use app\models\Deporte;
+//use app\models\Ciudad;
+use app\models\Candidato;
+use app\models\puesto;
+//use app\models\Deporte;
 use app\models\Usuario;
-use app\models\Tipo_Evento;
+//use app\models\Tipo_Evento;
+use app\models\Puesto_Evento;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\ForbiddenHttpException;
 
 /**
  * EventoController implements the CRUD actions for Evento model.
@@ -68,20 +72,55 @@ class EventoController extends Controller
      */
     public function actionCreate()
     {
+        if(Yii::$app->user->isGuest){
+            throw new ForbiddenHttpException('No esta logeado el usuario!');
+        }
+        
         $model = new Evento;
+        $puesto= new Puesto_Evento;
         $usuario= Usuario::find();
-        if ($model->load(Yii::$app->request->post())) {
+        
+        if ($model->load(Yii::$app->request->post())&&$puesto->load(Yii::$app->request->post())) {
             $model->id_usuario=Yii::$app->user->identity->id;
             $model->id_tipo='1';
             $model->save();
+            $puesto->id_evento=$model->id_evento;
+            //$puesto->id_puesto='1';
+            $puesto->save();
             return $this->redirect(['view', 'id' => $model->id_evento]);
         } else {
             return $this->render('create', [
                 'model' => $model,
+                'puesto'=>$puesto,
                 'usuario'=>$usuario,
             ]);
         }
     }
+    
+    
+            /**
+     * CREAR UNA ACCION PARA POSTULARSE A UN EVENTO
+     * If creation is successful, the browser will be redirected to the 'view' page.
+     * @return mixed
+     */
+    public function actionPostular($id)
+    {
+        $candidato = new Candidato;
+        $puesto= new puesto;
+
+        if ($candidato->load(Yii::$app->request->post())) {
+            $candidato->id_usr=Yii::$app->user->identity->id;
+            $candidato->id_estado='3';
+            $candidato->save();
+            return $this->redirect(['view', 'id' => $candidato->id_candidato]);
+        } else {
+            return $this->render('create', [
+                'model' => $candidato,
+            ]);
+        }        
+        
+    }   
+    
 
     /**
      * Updates an existing Evento model.
@@ -91,7 +130,14 @@ class EventoController extends Controller
      */
     public function actionUpdate($id)
     {
+        if(Yii::$app->user->isGuest){
+            throw new ForbiddenHttpException('No esta logeado el usuario!');
+        }
+        
         $model = $this->findModel($id);
+        if($model->id_usuario!=Yii::$app->user->identity->id){
+            throw new ForbiddenHttpException('El usuario no es el creador del evento');
+        }
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id_evento]);
@@ -110,6 +156,14 @@ class EventoController extends Controller
      */
     public function actionDelete($id)
     {
+        if(Yii::$app->user->isGuest){
+            throw new ForbiddenHttpException('No esta logeado el usuario!');
+        }
+        
+        $model = $this->findModel($id);
+        if($model->id_usuario!=Yii::$app->user->identity->id){
+            throw new ForbiddenHttpException('El usuario no es el creador del evento');
+        }
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
