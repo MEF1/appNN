@@ -63,7 +63,7 @@ class Candidato extends \yii\db\ActiveRecord
      */
     public function getIdPuestoEvento()
     {
-        return $this->hasOne(PuestoEvento::className(), ['id_puestoEvento' => 'id_puestoEvento']);
+        return $this->hasOne(Puesto_Evento::className(), ['id_puestoEvento' => 'id_puestoEvento']);
     }
 
     /**

@@ -14,11 +14,11 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'id_candidato')->textInput() ?>
+    <?=$form->field($model, 'id_candidato')->textInput() ?>
 
-    <?= $form->field($model, 'id_usr')->textInput() ?>
+    <?=$form->field($model, 'id_usr')->textInput() ?>
 
-    <?= $form->field($model, 'id_puestoEvento')->textInput() ?>
+    <?=$form->field($model, 'id_puestoEvento')->textInput() ?>
 
     <?= $form->field($model, 'id_estado')->textInput() ?>
 

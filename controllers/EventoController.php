@@ -82,9 +82,9 @@ class EventoController extends Controller
         
         if ($model->load(Yii::$app->request->post())&&$puesto->load(Yii::$app->request->post())) {
             $model->id_usuario=Yii::$app->user->identity->id;
+            $puesto->id_evento=$model->id_evento;
             $model->id_tipo='1';
             $model->save();
-            $puesto->id_evento=$model->id_evento;
             //$puesto->id_puesto='1';
             $puesto->save();
             return $this->redirect(['view', 'id' => $model->id_evento]);
@@ -104,18 +104,24 @@ class EventoController extends Controller
      * @return mixed
      */
     public function actionPostular($id)
-    {
-        $candidato = new Candidato;
-        $puesto= new puesto;
-
-        if ($candidato->load(Yii::$app->request->post())) {
+    {        
+        //$evento= Evento::findOne($id) ;
+        //$sql='select * from Puesto_Evento where id_evento=12 ';
+        //$puesto= Puesto_Evento::findOne('11');
+        $puesto = Puesto_Evento::find()->where('id_evento = '.$id)->one();
+        //echo $id;echo$puesto->id_puesto;exit;
+        if ($puesto !=NULL) {
+            $candidato = new Candidato;
+            $candidato->id_puestoEvento= $puesto->id_puestoEvento;
             $candidato->id_usr=Yii::$app->user->identity->id;
             $candidato->id_estado='3';
             $candidato->save();
-            return $this->redirect(['view', 'id' => $candidato->id_candidato]);
+            return $this->redirect(['view', 'id' => '3']);
         } else {
-            return $this->render('create', [
-                'model' => $candidato,
+            return $this->render('view', [
+                //'evento'=>$evento,
+                //model' => $candidato,
+                //'puesto'=> $puesto,
             ]);
         }        
         

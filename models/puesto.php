@@ -42,7 +42,7 @@ class puesto extends \yii\db\ActiveRecord
     {
         return [
             'id_puesto' => 'Id Puesto',
-            'descripcion' => 'Descripcion',
+            'descripcion' => 'Puesto',
             'id_deporte' => 'Id Deporte',
         ];
     }

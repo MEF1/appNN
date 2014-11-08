@@ -3,8 +3,11 @@
 use yii\helpers\Html;
 //use yii\widgets\DetailView;
 use app\models\Evento;
+use app\models\Puesto_Evento;
+use app\models\Candidato;
 //use yii\widgets\ActiveForm;
 use yii\grid\GridView;
+use yii\widgets\ListView;
 use yii\data\ActiveDataProvider;
 
 /**
@@ -75,5 +78,60 @@ $this->params['breadcrumbs'][] = $this->title;
             
             
     ?>
+    <h2>Postulantes</h2>
+    <?php
+            $eventos=Evento::findBySql('select * from Evento where id_usuario='.$model->id_usr)->all();
+            
+            foreach ($eventos as $evento) {
+            
+                $puestoEvento=Puesto_Evento::findBySql('select * from Puesto_Evento where id_evento='.$evento->id_evento)->one();
+
+
+                $dataProvider1 = new ActiveDataProvider([
+                'query' => Candidato::findBySql('select * from Candidato where id_puestoEvento='.$puestoEvento->id_puestoEvento),
+                'pagination' => [
+                    'pageSize' => 5,
+                    ],
+                ]);
+                echo GridView::widget([
+                    'dataProvider' => $dataProvider1,
+                    'columns'=>[
+                        //'id_candidato',
+                        'idPuestoEvento.idEvento.descripcion',
+                        'idPuestoEvento.idPuesto.descripcion',
+                        'idUsr.nombre',
+                        'idEstado.tipo',
+
+
+                    ]
+                ]); 
+            }
+            
+    ?>
+    
+    <h2>Me postule en -- Eventos: </h2>
+    <?php            
+            $dataProvider2 = new ActiveDataProvider([
+            'query' => Candidato::findBySql('select * from Candidato where id_usr='.Yii::$app->user->identity->id),
+            'pagination' => [
+                'pageSize' => 10,
+                ],
+            ]);
+            echo GridView::widget([
+                'dataProvider' => $dataProvider2,
+                'columns'=>[
+                    //'id_candidato',
+                    'idPuestoEvento.idEvento.descripcion',
+                    'idPuestoEvento.idPuesto.descripcion',
+                    //'idUsr.nombre',
+                    'idEstado.tipo',
+
+
+                ]
+            ]); 
+
+            
+    ?>
+    
 
 </div>

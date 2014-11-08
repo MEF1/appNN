@@ -59,7 +59,7 @@ class Evento extends \yii\db\ActiveRecord
             'fecha' => 'Fecha',
             'hora' => 'Hora',
             'direccion' => 'Direccion',
-            'descripcion' => 'Descripcion',
+            'descripcion' => 'Evento',
             'lat' => 'Lat',
             'long' => 'Long',
             'id_ciudad' => 'Ciudad',

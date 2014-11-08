@@ -40,7 +40,7 @@ class EstadoCandidato extends \yii\db\ActiveRecord
     {
         return [
             'id_estado' => 'Id Estado',
-            'tipo' => 'Tipo',
+            'tipo' => 'Estado',
         ];
     }
 

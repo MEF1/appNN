@@ -2,7 +2,7 @@
 
 use yii\helpers\Html;
 use app\models\Puesto_Evento;
-//use yii\widgets\ActiveForm;
+use yii\widgets\ActiveForm;
 use yii\grid\GridView;
 use yii\data\ActiveDataProvider;
 /**

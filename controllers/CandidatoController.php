@@ -8,6 +8,7 @@ use app\models\CandidatoSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use app\models\Puesto_Evento;
 
 /**
  * CandidatoController implements the CRUD actions for Candidato model.

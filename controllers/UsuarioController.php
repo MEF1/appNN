@@ -114,10 +114,12 @@ class UsuarioController extends Controller {
         if ($band && $model->save()) { //Si $band es true y pudo guardar los datos del modelo entra por el if
             
             Yii::$app->mail->compose()
-            ->setFrom('martin.betelu6@gmail.com')
-            ->setTo($model->email)
+            ->setFrom('appNN.2014@gmail.com') //destinatario del correo
+            ->setTo($model->email) //para probar modificar por correo propio
             ->setSubject('Datos de Perfil')
-            ->setHtmlBody('<b>Usuario:</b>'.$model->usr.'<br><b>Clave:</b>'.$model->clave)
+            // este el el body del correo, aplicar los cambio de HTML aca!!
+            ->setHtmlBody(
+                    'nombre apellido'.$model->nombre.$model->apellido.'tel:'.$model->telefono.'<b>Usuario:</b>'.$model->usr.'<br><b>Clave:</b>'.$model->clave)
             ->send();
             return $this->redirect(['view', 'id' => $model->id_usr]);
         } //Redirecciona a la vista del documento creado

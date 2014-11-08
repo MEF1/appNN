@@ -59,4 +59,10 @@ class Puesto_Evento extends \yii\db\ActiveRecord
     {
         return $this->hasOne(puesto::className(), ['id_puesto' => 'id_puesto']);
     }
+    
+    public function getIdEvento()
+    {
+        return $this->hasOne(Evento::className(), ['id_evento' => 'id_evento']);
+    }
+    
 }
