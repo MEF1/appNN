@@ -12,6 +12,7 @@ use app\models\Puesto_Evento;
  */
 class Puesto_EventoSearch extends Puesto_Evento
 {
+    public $_id_usuario;
     public function rules()
     {
         return [
@@ -28,11 +29,14 @@ class Puesto_EventoSearch extends Puesto_Evento
     public function search($params)
     {
         $query = Puesto_Evento::find();
-
+        $query->joinWith(['idEvento']);
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);
-
+        if(isset($this->_id_usuario)){
+            $query->andFilterWhere([
+    'Evento.id_usuario' => $this->_id_usuario]);
+        }
         if (!($this->load($params) && $this->validate())) {
             return $dataProvider;
         }

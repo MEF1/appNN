@@ -3,6 +3,9 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\ListView;
+use yii\bootstrap\Modal;
+//use yii2fullcalendar\CoreAsset;
+//use yii\jui\CoreAsset;
 
 /**
  * @var yii\web\View $this
@@ -22,13 +25,23 @@ $this->params['breadcrumbs'][] = $this->title;
     <p>
         <?php /* Html::a('Create Evento', ['create'], ['class' => 'btn btn-success']) */?>
     </p>
+  
+    <?php Modal::begin([
+        'toggleButton' => ['label' => '<span class="glyphicon glyphicon-calendar"></span>',
+        'class' => 'btn btn-success',],]);
+        echo $this->render('calendario', [
+        //'model' => $model,
+        ]);
 
+        Modal::end();
+    ?>
+    
     <?= ListView::widget([
     	'dataProvider' => $dataProvider,
         'itemView'=>'_view',
     ]); ?>
     
-    
+ 
     <?php /* GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,

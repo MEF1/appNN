@@ -6,13 +6,21 @@ use yii\helpers\Html;
 $this->title = 'MEFU app';
 ?>
 <div class="site-index">
-
-    <div class="jumbotron">
-        <br><br>
+    
+    <div class="col-md-offset-2">
         <?=Html::img('imagenes/logoAppNN.png', ['class' => 'img-responsive'])?>
-        
-        <p class="lead">La nueva APP para completar tus picados incompletos</p>
-        <br><br><br><br><br>
+    </div>
+    <div class="col-md-offset-3">
+        <?=Html::img('imagenes/33.png', ['class' => 'img-responsive'])?>
+    </div>
+    
+    <div class="jumbotron col-md-8 col-md-offset-2">
+        <p> 
+            <?= Html::a('Falta Uno', ['evento/create'], ['class' => 'btn btn-primary btn-xs']) ?>
+            <?= Html::a('Quien Se Suma', ['evento'], ['class' => 'btn btn-primary btn-xs']) ?>
+            <?= Html::a('Mi Perfil', ['site/login'], ['class' => 'btn btn-primary btn-xs']) ?>
+
+        </p>
         <p><a class="btn btn-lg btn-success" href="http://meta.fi.uncoma.edu.ar/falta1/fondo.png">Conocé la APP</a></p>
     </div>
 

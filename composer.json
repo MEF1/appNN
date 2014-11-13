@@ -20,7 +20,8 @@
 		"yiisoft/yii2-swiftmailer": "dev-master",
 		"kartik-v/yii2-widgets": "dev-master",
 		"trentrichardson/jquery-timepicker-addon": "dev-master",
-		"2amigos/egmap": "dev-master"
+		"2amigos/egmap": "dev-master",
+		"philippfrenzel/yii2fullcalendar": "dev-master"
 	},
 	"require-dev": {
 		"yiisoft/yii2-codeception": "*",

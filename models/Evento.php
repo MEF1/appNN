@@ -90,7 +90,7 @@ class Evento extends \yii\db\ActiveRecord
      */
     public function getIdTipo()
     {
-        return $this->hasOne(TipoEvento::className(), ['id_tipoEvento' => 'id_tipo']);
+        return $this->hasOne(Tipo_Evento::className(), ['id_tipoEvento' => 'id_tipo']);
     }
 
     /**

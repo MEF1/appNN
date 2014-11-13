@@ -12,7 +12,8 @@ use Yii;
  * @property integer $id_puesto
  *
  * @property Candidato[] $candidatos
- * @property puesto &id_puesto 
+ * @property puesto &idPuesto 
+ * @property Evento &idEvento 
  */
 class Puesto_Evento extends \yii\db\ActiveRecord
 {
@@ -30,7 +31,7 @@ class Puesto_Evento extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_evento', 'id_puesto'], 'required'],
+            //[['id_evento', 'id_puesto'], 'required'],
             [['id_evento', 'id_puesto'], 'integer']
         ];
     }
@@ -43,7 +44,7 @@ class Puesto_Evento extends \yii\db\ActiveRecord
         return [
             'id_puestoEvento' => 'Id Puesto Evento',
             'id_evento' => 'Id Evento',
-            'id_puesto' => 'Id Puesto',
+            'id_puesto' => 'Puesto',
         ];
     }
 

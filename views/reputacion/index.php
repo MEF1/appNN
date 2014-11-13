@@ -32,9 +32,9 @@ $this->params['breadcrumbs'][] = $this->title;
             'comentario',
             'positvo',
             'negativo',
-            'id_tipo',
-            // 'id_usr',
-            // 'id_evento',
+            'idTipo.tipo',
+            'id_usr',
+            'id_evento',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

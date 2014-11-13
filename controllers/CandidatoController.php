@@ -82,8 +82,12 @@ class CandidatoController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id_candidato]);
+        if ($model->load(Yii::$app->request->post()) ) {
+            
+            //$model->id_estado='1';
+            $model->save();
+                    
+            return $this->redirect(['usuario/view&id='.Yii::$app->user->id]);
         } else {
             return $this->render('update', [
                 'model' => $model,

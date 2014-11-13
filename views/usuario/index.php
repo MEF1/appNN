@@ -26,7 +26,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+            //['class' => 'yii\grid\SerialColumn'],
              'id_usr',
             'nombre',
             'apellido',
@@ -36,7 +36,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'clave',
             'usr',
             'telefono',
-            'foto',
+            //'foto',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

@@ -78,6 +78,6 @@ class Reputacion extends \yii\db\ActiveRecord
      */
     public function getIdTipo()
     {
-        return $this->hasOne(TipoReputacion::className(), ['id_tipo' => 'id_tipo']);
+        return $this->hasOne(tipo_reputacion::className(), ['id_tipo' => 'id_tipo']);
     }
 }

@@ -29,14 +29,19 @@ use yii\bootstrap\Modal;
         ]) ?>
     </p>
 
+  
+    
+</div>      
+    
 <div class="evento-view">
+    
     <div class="row">        
         <div class="table-responsive col-md-9 col-md-offset-2">
             <table class="table">
                 <tr>
                     <td class="active"><?php  $foto = "imagenes/".$model->idUsuario->foto; echo Html::img($foto,['width'=>'50px','class'=>'img-thumbnail']);?> </td>
                     <td class="active"><?= $model->descripcion; ?></td>
-                    <td class="active"><b>Fecha</b>: <?= $model->fecha; ?> <br><b>Hora</b>: <?= $model->hora; ?></td>
+                    <td class="active"><b>Fecha</b>: <?= date("d-m-Y",strtotime($model->fecha)); ?> <br><b>Hora</b>: <?= date("H:i",strtotime($model->hora)); ?></td>
                     <td class="success">
                         <?php Modal::begin([
                             'toggleButton' => ['label' => 'Quiero ir',

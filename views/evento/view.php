@@ -8,7 +8,7 @@ use yii\widgets\DetailView;
  * @var app\models\Evento $model
  */
 
-$this->title = $model->id_evento;
+$this->title = $model->descripcion;
 $this->params['breadcrumbs'][] = ['label' => 'Eventos', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -41,7 +41,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'long',
             'idCiudad.nombre',
             'idDeporte.nombre',
-            'id_tipo',
+            'idTipo.nombre',
             'idUsuario.usr',
         ],
     ]) ?>

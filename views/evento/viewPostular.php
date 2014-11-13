@@ -20,7 +20,7 @@ use yii\data\ActiveDataProvider;
             ?>
         </div>
     <div class="col-md-8">
-        <p><b><u>Fecha</u></b>: <?= $model->fecha; ?> <b><u>Hora</u></b>: <?= $model->hora; ?></p>
+        <p><b><u>Fecha</u></b>: <?= date("d-m-Y",strtotime($model->fecha)); ?> <b><u>Hora</u></b>: <?= date("H:i",strtotime($model->hora)); ?></p>
         <p><b><u>Ciudad</u></b>: <?= $model->idCiudad->nombre; ?></p> 
         <p><b><u>Dirección</u></b>: <?= $model->direccion; ?></p>  
         <p><b><u>Deporte</u></b>: <?= $model->idDeporte->nombre; ?></p>

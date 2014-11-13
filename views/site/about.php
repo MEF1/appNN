@@ -7,12 +7,9 @@ use yii\helpers\Html;
 $this->title = 'Sobre';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="site-about">
-    <h1><?= Html::encode($this->title) ?></h1>
+<div class="site-about col-md-8 col-md-offset-2">
 
-    <p>
-        This is the About page. You may modify the following file to customize its content:
-    </p>
+    <?=Html::img('imagenes/22.png', ['class' => 'img-responsive'])?>
 
-    <code><?= __FILE__ ?></code>
+    
 </div>

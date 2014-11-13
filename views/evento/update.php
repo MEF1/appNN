@@ -7,10 +7,10 @@ use yii\helpers\Html;
  * @var app\models\Evento $model
  */
 
-$this->title = 'Update Evento: ' . $model->id_evento;
+$this->title = 'Modificar Evento: ' . $model->descripcion;
 $this->params['breadcrumbs'][] = ['label' => 'Eventos', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id_evento, 'url' => ['view', 'id' => $model->id_evento]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = 'Modificar';
 ?>
 <div class="evento-update">
 
@@ -18,6 +18,7 @@ $this->params['breadcrumbs'][] = 'Update';
 
     <?= $this->render('_form', [
         'model' => $model,
+        'puesto'=>$puesto,
     ]) ?>
 
 </div>

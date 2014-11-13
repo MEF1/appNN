@@ -34,7 +34,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'comentario',
             'positvo',
             'negativo',
-            'id_tipo',
+            'idTipo.tipo',
             'id_usr',
             'id_evento',
         ],
