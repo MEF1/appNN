@@ -35,33 +35,35 @@ $this->params['breadcrumbs'][] = $this->title;
 
         Modal::end();
     ?>
-    
-    <?= ListView::widget([
-    	'dataProvider' => $dataProvider,
-        'itemView'=>'_view',
-    ]); ?>
-    
- 
+
+     
     <?php /* GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            'id_evento',
-            'fecha',
+                        
+            'descripcion',
+            //'id_evento',
+            ['attribute' => 'fecha','format' => ['date', 'd-m-Y'], ],
+            //'fecha',
             'hora',
             'direccion',
-            'descripcion',
             // 'lat',
             // 'long',
             // 'id_ciudad',
             // 'id_deporte',
             // 'id_tipo',
             // 'id_usuario',
-
-            ['class' => 'yii\grid\ActionColumn'],
+           
         ],
-    ]); */ ?>
+    ]); */?>
+    
+    
+    <?= ListView::widget([
+    	'dataProvider' => $dataProvider,
+        'itemView'=>'_view',
+    ]); ?>
+ 
+
     
 </div>

@@ -44,6 +44,7 @@ use app\models\puesto;
     <?= $form->field($model, 'fecha')->widget(DatePicker::classname(), [
     'options' => ['placeholder' => 'Fecha del evento'],
     'pluginOptions' => [
+    'startDate'=>'-1',
     'autoclose'=>true,
     'language' => 'es',
     'format' => 'yyyy/mm/dd'

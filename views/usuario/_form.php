@@ -24,6 +24,7 @@ use kartik\widgets\FileInput;
     <?= $form->field($model, 'fecha_nac')->widget(DatePicker::classname(), [
     'options' => ['placeholder' => 'Ingrese la fecha de nacimiento ...'],
     'pluginOptions' => [
+    'endDate'=>'-12y',
     'autoclose'=>true,
     'format' => 'yyyy/mm/dd'
     ]

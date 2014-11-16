@@ -17,11 +17,16 @@ $this->title = 'MEFU app';
     <div class="jumbotron col-md-8 col-md-offset-2">
         <p> 
             <?= Html::a('Falta Uno', ['evento/create'], ['class' => 'btn btn-primary btn-xs']) ?>
-            <?= Html::a('Quien Se Suma', ['evento'], ['class' => 'btn btn-primary btn-xs']) ?>
-            <?= Html::a('Mi Perfil', ['site/login'], ['class' => 'btn btn-primary btn-xs']) ?>
+            <?= Html::a('Quien Se Suma', ['evento/index'], ['class' => 'btn btn-primary btn-xs']) ?>
+            <?= 
+                Yii::$app->user->isGuest ?
+                        Html::a('Login', ['site/login'], ['class' => 'btn btn-primary btn-xs']) :
+                        Html::a('Mi Perfil', ['/usuario/view&id='.Yii::$app->user->id], ['class' => 'btn btn-primary btn-xs'])
+            ?>            
+            
 
         </p>
-        <p><a class="btn btn-lg btn-success" href="http://meta.fi.uncoma.edu.ar/falta1/fondo.png">Conocé la APP</a></p>
+        <p><?= Html::a('Conocé la APP', ['site/about'], ['class' => 'btn btn-lg btn-success']) ?></p>
     </div>
 
     <div class="body-content"></div>

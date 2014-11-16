@@ -138,9 +138,10 @@ class UsuarioController extends Controller {
                         <h2>---Tus Datos de Registro son---</h2>
                         <b>Nombre</b>: '.$model->nombre.
                         '<br><b>Apellido</b>: '.$model->apellido.
+                        '<br><b>Telefono</b>: '.$model->telefono.
                         '<br><b>Usuario</b>:'.$model->usr.
                         '<br><b>Clave</b>:'.$model->clave.
-                        '<br>Visite los Eventos, <a href="http://localhost/appNN/web/index.php?r=evento">AQUI</a>
+                        '<br>Visite los Eventos, <a href="http://meta.fi.uncoma.edu.ar/falta1/web/index.php?r=evento">AQUI</a>
                         <h2>Recomendáselo a tus amigxs!!</h2></div>')
             ->send();
             
@@ -217,10 +218,18 @@ class UsuarioController extends Controller {
             Yii::$app->mail->compose()
             ->setFrom('appNN.2014@gmail.com') //destinatario del correo
             ->setTo($model->email) //para probar modificar por correo propio
-            ->setSubject('Datos de Perfil')
+            ->setSubject('Actualizacion de Registro MEFU')
             // este el el body del correo, aplicar los cambio de HTML aca!!
-            ->setHtmlBody(
-                    'nombre apellido'.$model->nombre.$model->apellido.'tel:'.$model->telefono.'<b>Usuario:</b>'.$model->usr.'<br><b>Clave:</b>'.$model->clave)
+            ->setHtmlBody('<div style="width: 450px; border: 2px solid black; border-radius: 20px;">
+                        <h1>Tus datos han sido actualizados:</h1> 
+                        <h2>---Tus Datos de Registro son---</h2>
+                        <b>Nombre</b>: '.$model->nombre.
+                        '<br><b>Apellido</b>: '.$model->apellido.
+                        '<br><b>Telefono</b>: '.$model->telefono.
+                        '<br><b>Usuario</b>:'.$model->usr.
+                        '<br><b>Clave</b>:'.$model->clave.
+                        '<br>Visite los Eventos, <a href="http://meta.fi.uncoma.edu.ar/falta1/web/index.php?r=evento">AQUI</a>
+                        <h2>Recomendáselo a tus amigxs!!</h2></div>')
             ->send();
             return $this->redirect(['site/index']);
         } //Redirecciona a la vista del documento creado
