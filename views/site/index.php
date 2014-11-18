@@ -7,26 +7,16 @@ $this->title = 'MEFU app';
 ?>
 <div class="site-index">
     
-    <div class="col-md-offset-2">
-        <?=Html::img('imagenes/logoAppNN.png', ['class' => 'img-responsive'])?>
+    <div class="col-md-9">
+            <?=Html::img('imagenes/22.png', ['class' => 'img-responsive'])?>
     </div>
-    <div class="col-md-offset-3">
-        <?=Html::img('imagenes/33.png', ['class' => 'img-responsive'])?>
-    </div>
-    
-    <div class="jumbotron col-md-8 col-md-offset-2">
-        <p> 
-            <?= Html::a('Falta Uno', ['evento/create'], ['class' => 'btn btn-primary btn-xs']) ?>
-            <?= Html::a('Quien Se Suma', ['evento/index'], ['class' => 'btn btn-primary btn-xs']) ?>
-            <?= 
-                Yii::$app->user->isGuest ?
-                        Html::a('Login', ['site/login'], ['class' => 'btn btn-primary btn-xs']) :
-                        Html::a('Mi Perfil', ['/usuario/view&id='.Yii::$app->user->id], ['class' => 'btn btn-primary btn-xs'])
-            ?>            
-            
-
+    <div class="col-md-3 jumbotron">
+        <p><?= Yii::$app->user->isGuest ?
+                        Html::a('Ingresar', ['site/login'], ['class' => 'btn btn-success btn-xs']) :
+                        Html::a('Mi Perfil', ['/usuario/view&id='.Yii::$app->user->id], ['class' => 'btn btn-success btn-xs'])?>         
         </p>
-        <p><?= Html::a('Conocé la APP', ['site/about'], ['class' => 'btn btn-lg btn-success']) ?></p>
+        <p><?= Html::a('Falta Uno', ['evento/create'], ['class' => 'btn btn-success btn-xs']) ?></p>
+        <p><?= Html::a('Quien Se Suma', ['evento/index'], ['class' => 'btn btn-success btn-xs']) ?></p>
     </div>
 
     <div class="body-content"></div>

@@ -37,7 +37,6 @@ AppAsset::register($this);
                 'options' => ['class' => 'navbar-nav navbar-right'],
                 'items' => [
                     ['label' => 'Inicio', 'url' => ['/site/index']],
-                    ['label' => 'Sobre', 'url' => ['/site/about']],
                     ['label' => 'Falta Uno', 'url' => ['evento/create']],
                     ['label' => 'Quien Se Suma', 'url' => ['/evento']],
                     ['label' => 'Contacto', 'url' => ['/site/contact']],
@@ -49,9 +48,9 @@ AppAsset::register($this);
                             'linkOptions' => ['data-method' => 'post']],
                 
                     Yii::$app->user->isGuest ?
-                        ['label' => 'Login', 'url' => ['/site/login']] :
+                        ['label' => 'Ingresar', 'url' => ['/site/login']] :
                         
-                        ['label' => 'Logout (' . Yii::$app->user->identity->username . ')',
+                        ['label' => 'Salir (' . Yii::$app->user->identity->username . ')',
                             'url' => ['/site/logout'],
                             'linkOptions' => ['data-method' => 'post']],
                 ],

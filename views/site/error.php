@@ -20,7 +20,7 @@ $this->title = $name;
     </div>
 
     <p>
-       Error!! Acceso Denegado
+       Error!! Acceso Denegado (aca poner la imagen de acceso denegado)
     </p>
 
 </div>
