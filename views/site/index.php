@@ -17,6 +17,8 @@ $this->title = 'MEFU app';
         </p>
         <p><?= Html::a('Falta Uno', ['evento/create'], ['class' => 'btn btn-success btn-xs']) ?></p>
         <p><?= Html::a('Quien Se Suma', ['evento/index'], ['class' => 'btn btn-success btn-xs']) ?></p>
+        <p>Descargá la APP</p>   
+        <?=Html::img('imagenes/qr.png', ['class' => 'img-responsive'])?>
     </div>
 
     <div class="body-content"></div>

@@ -9,18 +9,14 @@ use yii\helpers\Html;
  * @var Exception $exception
  */
 
-$this->title = $name;
+$this->title = MEFU;
 ?>
 <div class="site-error">
-
-    <h1><?= Html::encode($this->title) ?></h1>
 
     <div class="alert alert-danger">
         <?= nl2br(Html::encode($message)) ?>
     </div>
-
-    <p>
-       Error!! Acceso Denegado (aca poner la imagen de acceso denegado)
-    </p>
-
+    <div class="col-md 4 col-md-offset-2">
+     <?=Html::img('imagenes/prohibido.png', ['class' => 'img-responsive'])?>
+    </div>
 </div>
