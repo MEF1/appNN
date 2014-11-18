@@ -58,11 +58,23 @@ class ReputacionController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
+    public function actionCreate($idCandidato,$idEvento)
     {
         $model = new Reputacion;
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        $model->id_usr=$idCandidato;
+        $model->id_evento=$idEvento;
+        if ($model->load(Yii::$app->request->post()) ) {
+            
+            if($model->id_tipo=='2'){
+                $model->negativo=$model->positvo;
+                $model->positvo=0;
+            }
+            else{
+                $model->negativo=0;
+            }
+            
+            $model->save();
+            
             return $this->redirect(['view', 'id' => $model->id_reputacion]);
         } else {
             return $this->render('create', [

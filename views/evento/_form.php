@@ -51,7 +51,11 @@ use app\models\puesto;
     ]
     ]); ?>
     
-    <?= $form->field($model, 'hora')->widget(TimePicker::className())?>
+    <?= $form->field($model, 'hora')->widget(TimePicker::className(),[
+        'pluginOptions'=>[ 
+            
+            ]
+    ])?>
 
     <?= $form->field($model, 'direccion')->textInput() ?>
 

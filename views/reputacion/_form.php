@@ -23,7 +23,7 @@ use kartik\widgets\StarRating;
     <?= $form->field($model, 'positvo')->widget(StarRating::className(),[
                                         'name' => 'rating',
                                          
-                                        'pluginOptions' => ['size' => 'xs']
+                                        'pluginOptions' => ['size' => 'xs','step'=>1]
                                         ])->label('Calificacion'); ?>
 
     <?php //$form->field($model, 'negativo')->textInput() ?>

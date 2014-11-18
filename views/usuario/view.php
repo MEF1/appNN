@@ -121,7 +121,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 return Html::a('<span class="glyphicon glyphicon-pencil"></span>', ['/candidato/update', 'id' => $model->id_candidato]);
                                 },
                                  'reputacion' => function ($url, $model) {
-                                return Html::a('<span class="glyphicon glyphicon-star"></span>', ['/reputacion/create', 'id' => $model->id_candidato]);
+                                return Html::a(' Evaluar<span class="glyphicon glyphicon-star"></span>', ['/reputacion/create', 'idCandidato' => $model->id_candidato,'idEvento'=>$model->idPuestoEvento->id_evento]);
                                 },
                              ],
                         ],

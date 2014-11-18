@@ -48,6 +48,11 @@ use yii\data\ActiveDataProvider;
             
     ?>
     
-<?= Html::a('Postularme <span class="glyphicon glyphicon-ok"></span>', ['postular', 'id' => $model->id_evento], ['class' => 'btn btn-success']) ?>
+<?= Html::a('Postularme <span class="glyphicon glyphicon-ok"></span>', ['postular', 'id' => $model->id_evento], 
+            ['class' => 'btn btn-success',
+            'data' => [
+                'confirm' => 'Seguro que quieres Postularte',
+                ],
+            ]) ?>
 
 </div>
