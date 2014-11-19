@@ -36,7 +36,7 @@ use yii\bootstrap\Modal;
 <div class="evento-view">
     
     <div class="row">        
-        <div class="table-responsive col-md-9 col-md-offset-2">
+        <div class="table-responsive center-block">
             <table class="table">
                 <tr>
                     <td class="active"><?php  $foto = "imagenes/".$model->idUsuario->foto; echo Html::img($foto,['width'=>'50px','class'=>'img-thumbnail']);?> </td>
@@ -45,7 +45,7 @@ use yii\bootstrap\Modal;
                     <td class="success">
                         <?php Modal::begin([
                             'toggleButton' => ['label' => 'Quiero ir',
-                            'class' => 'btn btn-success',],]);
+                            'class' => 'btn btn-success center-block',],]);
                             echo $this->render('viewPostular', [
                             'model' => $model,
                             ]);

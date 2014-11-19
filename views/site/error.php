@@ -16,7 +16,7 @@ $this->title = MEFU;
     <div class="alert alert-danger">
         <?= nl2br(Html::encode($message)) ?>
     </div>
-    <div class="col-md 4 col-md-offset-2">
-     <?=Html::img('imagenes/prohibido.png', ['class' => 'img-responsive'])?>
+    <div class="">
+     <?=Html::img('imagenes/prohibido.png', ['class' => 'img-responsive center-block'])?>
     </div>
 </div>

@@ -5,6 +5,8 @@ use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
 use app\models\tipo_reputacion;
 use kartik\widgets\StarRating;
+use app\models\UsuarioSearch;
+use app\models\CandidatoSearch;
 /**
  * @var yii\web\View $this
  * @var app\models\Reputacion $model
@@ -14,6 +16,13 @@ use kartik\widgets\StarRating;
 
 <div class="reputacion-form">
 
+    <?php
+        $candidato= CandidatoSearch::find($_GET['idCandidato'])->one();
+        $usuario=  UsuarioSearch::findOne($candidato->id_usr);
+        echo $usuario->usr;
+        
+    ?>
+    
     <?php $form = ActiveForm::begin(); ?>
     
     <?php //$form->field($model, 'id_tipo')->textInput() ?>

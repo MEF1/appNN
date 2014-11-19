@@ -21,6 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <p style="font-size: 21pt;"><u>Dirección</u>:  <?= $model->direccion; ?></p>
         <p style="font-size: 21pt;"><u>Ciudad</u>: <?= $model->idCiudad->nombre; ?></p>
         <p style="font-size: 21pt;"><u>Deporte</u>: <?= $model->idDeporte->nombre; ?></p>
+        <p style="font-size: 21pt;"><u>Puesto</u>: </p>
         
     <p>
         <?= Html::a('Editar', ['update', 'id' => $model->id_evento], ['class' => 'btn btn-primary']) ?>

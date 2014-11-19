@@ -18,7 +18,6 @@ use yii\data\ActiveDataProvider;
  */
 
 $this->title ='Usuario: '.$model->usr;
-$this->params['breadcrumbs'][] = ['label' => 'Usuarios', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="usuario-view">
