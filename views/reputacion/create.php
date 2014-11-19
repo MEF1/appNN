@@ -7,8 +7,7 @@ use yii\helpers\Html;
  * @var app\models\Reputacion $model
  */
 
-$this->title = 'Create Reputacion';
-$this->params['breadcrumbs'][] = ['label' => 'Reputacions', 'url' => ['index']];
+$this->title = 'Calificar';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="reputacion-create">

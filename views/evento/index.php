@@ -20,23 +20,13 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+    <?php echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
         <?php /* Html::a('Create Evento', ['create'], ['class' => 'btn btn-success']) */?>
     </p>
   
-    <?php Modal::begin([
-        'toggleButton' => ['label' => '<span class="glyphicon glyphicon-calendar"></span>',
-        'class' => 'btn btn-success',],]);
-        echo $this->render('calendario', [
-        //'model' => $model,
-        ]);
-
-        Modal::end();
-    ?>
-
-     
+         
     <?php /* GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
