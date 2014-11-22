@@ -234,7 +234,7 @@ class UsuarioController extends Controller {
             return $this->redirect(['site/index']);
         } //Redirecciona a la vista del documento creado
         else {
-            return $this->render('create', [ //Si entra por el else vuelve a renderizar la vista create
+            return $this->render('update', [ //Si entra por el else vuelve a renderizar la vista create
                         'model' => $model,
             ]);
         }
